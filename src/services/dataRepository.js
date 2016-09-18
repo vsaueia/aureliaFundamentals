@@ -15,7 +15,7 @@ export class DataRepository {
               item.dateTime = dateTime;
             });
             resolve(this.events);
-          }, 10);
+          }, 2000);
         } else {
           resolve(this.events);
         }

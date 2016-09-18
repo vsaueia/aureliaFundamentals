@@ -25,8 +25,9 @@ export class Events {
 				} else {
 					this.events = events;
 				}
-				this.events.forEach(item =>
-					item.detailUrl = router.generate('eventDetail', {eventId: item.id}));
+				this.events.forEach(item => {
+					item.detailUrl = this.router.generate('eventDetail', {eventId: item.id});
+				});
 			});
 	}
 }
