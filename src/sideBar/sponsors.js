@@ -1,3 +1,6 @@
 export class Sponsors {
-	constructor(){}
+	constructor(){
+		this.message = "Sponsors";
+		setTimeout(() => this.message = "Changed after binding", 3000);
+	}
 }
