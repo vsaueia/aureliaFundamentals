@@ -5,13 +5,11 @@ import {Router, activationStrategy} from 'aurelia-router';
 @inject(DataRepository, Router)
 export class EventsList {
 	constructor(dataRepository, router) {
-		console.log('Ctor');
 		this.dataRepository = dataRepository;
 		this.router = router;
 	}
 
 	activate(params, routeConfig) {
-		console.log('activated');
 		var pastOrFuture = routeConfig.name == '' ? 'future' : routeConfig.name;
 		return this.dataRepository.getEvents(pastOrFuture).then(events => {
 			  if(params.speaker || params.topic) {
@@ -35,22 +33,7 @@ export class EventsList {
 			});
 	}
 
-	canActivate() {
-		console.log('canActivate');
-		return true;
-	}
-
-	canDeactivate() {
-		console.log('canDeactivate');
-		return true;
-	}
-
-	deactivate() {
-		console.log("deactivate");
-	}
-
 	determineActivationStrategy() {
-		console.log("determineActivationStrategy called");
 		return activationStrategy.invokeLifecycle;
 	}
 }

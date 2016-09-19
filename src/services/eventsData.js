@@ -30,5 +30,13 @@ export var eventsData = [
      "title": "Alguma descrição completa...",
      "speaker": "Steve Alberts",
      "image": "SteveAlberts.jpg"
-   }
+ },
+ {
+   "id": 172,
+   "description": "<b>Aurelia</b> is a full featured client JavaScript framework for building rich <em>SPA</em><br/><br/>Some text to continue...",
+   "dateTime": "2018-05-22T15:30:00.000Z",
+   "title": "Getting Started with Aurelia - Brian Noyes",
+   "speaker": "Brian Noyes",
+   "image": "BrianNoyes.jpg"
+ }
 ]
