@@ -22,5 +22,13 @@ export var eventsData = [
     "title": "Web Components and Polymer - An Introduction to the Future of web Applications",
     "speaker": "Steve Alberts",
     "image": "SteveAlberts.jpg"
-  }
+   },
+   {
+     "id": 519,
+     "description": "Algum evento do futuro...",
+     "dateTime": "2018-05-22T15:30:00.000Z",
+     "title": "Alguma descrição completa...",
+     "speaker": "Steve Alberts",
+     "image": "SteveAlberts.jpg"
+   }
 ]

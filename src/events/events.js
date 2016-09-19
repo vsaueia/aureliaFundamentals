@@ -3,8 +3,8 @@ export class Events {
     this.router = router;
     config.title = "Events";
     config.map([
-      {route:['', 'future'], moduleId: 'events/eventsList', title: "Future Events", nav: true},
-      {route:'past', moduleId: 'events/past', title: "Past Events", nav: true, href: '#/events/past'}
+      {route:['', 'future'], moduleId: 'events/eventsList', title: "Future Events", nav: true, name: 'future'},
+      {route:'past', moduleId: 'events/eventsList', title: "Past Events", nav: true, href: '#/events/past', name: 'past'}
     ]);
   }
 }

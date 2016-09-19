@@ -1,16 +1,19 @@
 import {inject} from 'aurelia-framework';
 import {DataRepository} from 'services/dataRepository';
-import {Router} from 'aurelia-router';
+import {Router, activationStrategy} from 'aurelia-router';
 
 @inject(DataRepository, Router)
 export class EventsList {
 	constructor(dataRepository, router) {
+		console.log('Ctor');
 		this.dataRepository = dataRepository;
 		this.router = router;
 	}
 
-	activate(params) {
-		this.dataRepository.getEvents().then(events => {
+	activate(params, routeConfig) {
+		console.log('activated');
+		var pastOrFuture = routeConfig.name == '' ? 'future' : routeConfig.name;
+		return this.dataRepository.getEvents(pastOrFuture).then(events => {
 			  if(params.speaker || params.topic) {
 					var filteredResults = [];
 					events.forEach(item => {
@@ -25,9 +28,29 @@ export class EventsList {
 				} else {
 					this.events = events;
 				}
+
 				this.events.forEach(item => {
 					item.detailUrl = this.router.generate('eventDetail', {eventId: item.id});
 				});
 			});
+	}
+
+	canActivate() {
+		console.log('canActivate');
+		return true;
+	}
+
+	canDeactivate() {
+		console.log('canDeactivate');
+		return true;
+	}
+
+	deactivate() {
+		console.log("deactivate");
+	}
+
+	determineActivationStrategy() {
+		console.log("determineActivationStrategy called");
+		return activationStrategy.invokeLifecycle;
 	}
 }
