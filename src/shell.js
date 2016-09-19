@@ -1,3 +1,5 @@
+import toastr from 'toastr';
+
 export class Shell {
 	constructor() {
 	}
@@ -5,6 +7,7 @@ export class Shell {
 	configureRouter(config, router) {
 		this.router = router;
 		config.title = "Palmeiras SEP";
+		config.addPipelineStep('modelbind', ToastNavResult);
 		config.map([
 				{ route: ['', 'events'],
 					viewPorts:{
@@ -24,5 +27,11 @@ export class Shell {
 						sideBar:{moduleId: 'sideBar/ads'}
 				} , name: 'eventDetail'}
 			]);
+	}
+}
+
+class ToastNavResult {
+	run(navigationInstruction, next) {
+		return next().then(a => {toastr.info(a.status); return a;});
 	}
 }
