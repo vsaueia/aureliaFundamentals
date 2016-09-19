@@ -10,6 +10,8 @@ export class DataRepository {
         if(!this.events) {
           setTimeout(()=> {
             this.events = eventsData;
+            var sorted = this.events.sort((a,b)=> a.dateTime >= b.dateTime ? 1 : -1);
+            this.events = sorted;
             this.events.forEach(item => {
               var dateTime = moment(item.dateTime).format("MM/DD/YYYY HH:mm");
               item.dateTime = dateTime;
