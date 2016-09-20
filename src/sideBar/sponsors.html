@@ -1,9 +1,9 @@
 <template>
 	<div textContent.bind="message"></div>
 	<button type="button" click.delegate="doSomething(message)">Click me</button>
-	<input type="text" ref="input1"/>
-	<div>${input1.value}</div>
-	<div repeat.for="[key, value] of mapCollection">
+	<input type="text" ref="input1" css="background:${customerColor}"/>
+	<div style.bind="styleString">${input1.value}</div>
+	<div style.bind="styleObject" repeat.for="[key, value] of mapCollection">
 		${key} : ${value}
 	</div>
 </template>

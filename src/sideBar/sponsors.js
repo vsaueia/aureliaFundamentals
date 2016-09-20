@@ -6,8 +6,7 @@ export class Sponsors {
 		this.mapCollection.set('a', 'Alpha');
 		this.mapCollection.set('b', 'Beta');
 		this.mapCollection.set('c', 'Charlie');
-		this.mapCollection.set('d', 'Delta');
-	}
+		this.mapCollection.set('d', 'Delta');	}
 
 	doSomething(foo) {
 		console.log(foo);

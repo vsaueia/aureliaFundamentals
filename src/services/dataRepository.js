@@ -1,4 +1,5 @@
 import {eventsData} from 'services/eventsData';
+import {jobs, states, jobTypes, jobSkills} from 'services/jobsData';
 import moment from 'moment';
 
 function filterAndFormat(pastOrFuture, events) {
@@ -37,5 +38,53 @@ export class DataRepository {
 
     getEvent(eventId) {
       return this.events.find(item => item.id == eventId);
+    }
+
+    addJob(job) {
+        var promise = new Promise((resolve, reject) => {
+            this.jobs.push(job);
+            resolve(job);
+        });
+        return promise;
+    }
+
+    getJobs() {
+        var promise = new Promise((resolve, reject) => {        
+            if(!this.jobs) {
+                this.jobs = jobs;
+            }
+            resolve(this.jobs);
+        });
+        return promise;
+    }
+
+    getStates() {
+        var promise = new Promise((resolve, reject) => {
+            if(!this.states) {
+                this.states = states;
+            }
+            resolve(this.states);
+        });
+        return promise;
+    }
+
+    getJobTypes() {
+        var promise = new Promise((resolve, reject) => {
+            if(!this.jobTypes) {
+                this.jobTypes = jobTypes;
+            }
+            resolve(this.jobTypes);
+        });
+        return promise;
+    }
+
+    getJobSkills() {
+        var promise = new Promise((resolve, reject) => {
+            if(!this.jobSkills) {
+                this.jobSkills = jobSkills;
+            }
+            resolve(this.jobSkills);
+        });
+        return promise;
     }
 }

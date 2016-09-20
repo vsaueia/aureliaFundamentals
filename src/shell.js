@@ -7,7 +7,7 @@ export class Shell {
 	configureRouter(config, router) {
 		this.router = router;
 		config.title = "Palmeiras SEP";
-		config.addPipelineStep('modelbind', ToastNavResult);
+		//config.addPipelineStep('modelbind', ToastNavResult);
 		config.map([
 				{ route: ['', 'events'],
 					viewPorts:{
@@ -17,7 +17,7 @@ export class Shell {
 				{ route: 'jobs', viewPorts:{
 						mainContent: {moduleId: 'jobs/jobs'},
 						sideBar:{moduleId: 'sideBar/sponsors'}
-				}, name: 'Jobs', title: 'Jobs', nav: true },
+				}, name: 'jobs', title: 'Jobs', nav: true },
 				{ route: 'discussion', viewPorts:{
 						mainContent: {moduleId: 'discussion/discussion'},
 						sideBar:{moduleId: 'sideBar/ads'}
@@ -25,13 +25,16 @@ export class Shell {
 				{ route: 'eventDetail/:eventId',viewPorts:{
 						mainContent: {moduleId: 'events/eventDetail'},
 						sideBar:{moduleId: 'sideBar/ads'}
-				} , name: 'eventDetail'}
+				} , name: 'eventDetail'},
+				{ route: 'addJob', name: 'addJob', viewPorts: {
+					mainContent: {moduleId: 'jobs/addJob'}, sideBar:{moduleId: 'sideBar/sponsors'}
+				}}
 			]);
 	}
 }
 
-class ToastNavResult {
-	run(navigationInstruction, next) {
-		return next().then(a => {toastr.info(a.status); return a;});
-	}
-}
+// class ToastNavResult {
+// 	run(navigationInstruction, next) {
+// 		return next().then(a => {toastr.info(a.status); return a;});
+// 	}
+// }
