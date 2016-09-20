@@ -7,6 +7,7 @@ export class EventsList {
 	constructor(dataRepository, router) {
 		this.dataRepository = dataRepository;
 		this.router = router;
+		this.whoareyou = "Luke Im your father";
 	}
 
 	activate(params, routeConfig) {
