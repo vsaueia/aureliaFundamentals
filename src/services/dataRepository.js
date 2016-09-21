@@ -11,10 +11,7 @@ function filterAndFormat(pastOrFuture, events) {
   } else {
     results = results;
   }
-  results.forEach(item => {
-    var dateTime = moment(item.dateTime).format("MM/DD/YYYY HH:mm");
-    item.dateTime = dateTime;
-  });
+    
   return results;
 }
 
@@ -49,7 +46,7 @@ export class DataRepository {
     }
 
     getJobs() {
-        var promise = new Promise((resolve, reject) => {        
+        var promise = new Promise((resolve, reject) => {
             if(!this.jobs) {
                 this.jobs = jobs;
             }
