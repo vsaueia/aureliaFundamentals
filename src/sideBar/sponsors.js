@@ -1,6 +1,4 @@
-import {
-  computedFrom
-} from 'aurelia-framework';
+import {computedFrom} from 'aurelia-framework';
 
 export class Sponsors {
   constructor() {
@@ -18,6 +16,11 @@ export class Sponsors {
 
   doSomething(foo) {
     console.log(foo);
+  }
+
+  myinterceptor(method, update, value) {
+    console.log(value);
+    update(value);
   }
 }
 
