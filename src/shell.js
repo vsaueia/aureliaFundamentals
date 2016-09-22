@@ -1,7 +1,9 @@
 import toastr from 'toastr';
+import moment from 'moment';
 
 export class Shell {
 	constructor() {
+		setInterval(()=>this.timeIs = moment().format('hh:mm:ss.SSS'), 100);
 	}
 
 	configureRouter(config, router) {

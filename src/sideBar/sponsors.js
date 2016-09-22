@@ -12,6 +12,8 @@ export class Sponsors {
     this.mapCollection.set('c', 'Charlie');
     this.mapCollection.set('d', 'Delta');
     this.person = new Person();
+    this.trades = [{amount: 99.93, time: new Date()}];
+    setTimeout(() => this.trades.push({amount: 33.54, time: new Date()}), 3000);
   }
 
   doSomething(foo) {
