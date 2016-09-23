@@ -207,5 +207,6 @@
     "aurelia-metadata": "npm:aurelia-metadata@^1.0.0",
     "aurelia-pal": "npm:aurelia-pal@^1.0.0",
     "aurelia-templating": "npm:aurelia-templating@^1.0.0"
-  }
+  },
+  "npm:aurelia-validation@0.6.1": {}
 }

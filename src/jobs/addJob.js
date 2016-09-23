@@ -1,10 +1,10 @@
 import {inject} from 'aurelia-framework';
 import {DataRepository} from 'services/dataRepository';
+import {Validation} from 'aurelia-validation';
 
-@inject(DataRepository)
+@inject(DataRepository, Validation)
 export class AddJob {
-
-	constructor(dataRepository) {
+	constructor(dataRepository, validation) {
 		this.job = {jobType: 'Full Time', jobSkills: []};
 		this.dataRepository = dataRepository;
 		this.dataRepository.getStates().then(states => {
@@ -16,6 +16,8 @@ export class AddJob {
 		this.dataRepository.getJobSkills().then(jobSkills => {
 			this.jobSkills = jobSkills;
 		});
+		this.validation = validation.on(this)
+		  .ensure('job.title').isNotEmpty().hasMinLength(3);
 	}
 
 	activate(params, routeConfig, navigationInstruction) {
@@ -23,9 +25,11 @@ export class AddJob {
 	}
 
 	save() {
-		if(this.job.needDate) {
-			this.job.needDate = new Date(this.job.needDate);
-		}
-		this.dataRepository.addJob(this.job).then(job=>this.router.navigateToRoute('jobs'));
+		this.validation.validate().then(() => {
+			if(this.job.needDate) {
+				this.job.needDate = new Date(this.job.needDate);
+			}
+			this.dataRepository.addJob(this.job).then(job=>this.router.navigateToRoute('jobs'));
+		});
 	}
 }
