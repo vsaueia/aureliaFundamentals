@@ -20,6 +20,7 @@ System.config({
     "aurelia-binding": "npm:aurelia-binding@1.0.4",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0",
     "aurelia-dialog": "npm:aurelia-dialog@1.0.0-beta.3.0.0",
+    "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0",
     "aurelia-framework": "npm:aurelia-framework@1.0.2",
     "aurelia-http-client": "npm:aurelia-http-client@1.0.0",
     "aurelia-metadata": "npm:aurelia-metadata@1.0.0",
