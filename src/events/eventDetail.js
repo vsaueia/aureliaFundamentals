@@ -1,7 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {DataRepository} from 'services/dataRepository';
 import {DialogService} from 'aurelia-dialog';
-import {EditDialog} from 'events/EditDialog';
+import {EditDialog} from 'events/editDialog';
 
 @inject(DataRepository, DialogService)
 export class EventDetail {
