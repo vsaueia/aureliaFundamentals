@@ -46,6 +46,7 @@ export class DataRepository {
     }
 
     getEvent(eventId) {
+      console.log('getEvent');
       return this.events.find(item => item.id == eventId);
     }
 
